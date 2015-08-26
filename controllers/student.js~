@@ -40,12 +40,3 @@ exports.update = function(req,res){
       });
             
 };
-
-exports.remove = function(req,res){
-      
-      db.query("DELETE FROM student WHERE id = ?",[req.params.id],function(err,rows){
-            if(err)return next(err);
-            res.send(rows);
-      });     
-      
-};
