@@ -2,6 +2,8 @@ var db = require(__dirname+'/../lib/mysql');
 
 exports.find = function(req,res){
       
+      console.log(req.ip + "find()");
+
       db.query("SELECT * FROM student",function(err,rows){
             if(err)return next(err);
             res.send(rows);
@@ -19,6 +21,8 @@ exports.insert = function(req,res){
 };
 
 exports.findOne = function(req,res){
+
+      console.log(req.ip + "findOne()");
 
       db.query("SELECT * FROM student where id = ?",[req.params.id],function(err,rows){
             if(err)return next(err);
