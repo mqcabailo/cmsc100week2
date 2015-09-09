@@ -56,12 +56,16 @@ describe('student',function(){
 			it('should insert', function(done){
 
 				request(url)
-				.post()
+				.post('/students')
+				.send(studrec)
 				.end(function(err,res){
 
 					if(err) throw err;
 					res.should.have.status(200);
-					//res.body.should.be.an.instanceOf(Array);
+					res.body.should.be.an.instanceOf(Object);
+					res.body.should.have.properties('studno','name');
+					//res.body.should
+					//asdsadsadsadsadsadsada
 					done();
 
 				});
